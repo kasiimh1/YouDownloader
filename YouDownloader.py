@@ -23,8 +23,6 @@ else:
     print("\nEnter links seperate by a comma e.g. link,link,link")
     links = input().split(',')
     
-    
-    
     if (option == '1') is True:
         
         ydl_opts = {'quiet': 'opts.quiet',
@@ -41,7 +39,8 @@ if (option == '2') is True:
     ydl_opts = {'quiet': 'opts.quiet',
         'no_warnings': 'opts.no_warnings',
             'format': 'bestvideo+bestaudio/best',
-                'outtmpl': '%(title)s'
+                'outtmpl': '%(title)s',
+                    'merge_output_format': 'mkv'
                 }
 
 for index, x in enumerate(links):
