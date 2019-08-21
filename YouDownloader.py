@@ -26,6 +26,7 @@ else:
     if (option == '1') is True:
         
         ydl_opts = {'quiet': 'opts.quiet',
+            'outtmpl': '%(title)s.%(ext)s',
             'no_warnings': 'opts.no_warnings',
                 'format': 'bestaudio/best',
                     'postprocessors': [{
