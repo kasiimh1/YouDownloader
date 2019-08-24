@@ -5,22 +5,7 @@ import sys
 #**** need to install ffmpeg for this to work ****#
 
 links = []
-ydl_opts = []
-
-ydl_opts_aud = {'quiet': 'opts.quiet',
-    'no_warnings': 'opts.no_warnings',
-    'format': 'bestaudio/best',
-    'outtmpl':'%(title)s.%(ext)s',
-    'postprocessors': [{
-                       'key': 'FFmpegExtractAudio',
-                        'preferredcodec': 'mp3',
-                        'preferredquality': '320'}]}
-
-ydl_opts_vid = {'quiet': 'opts.quiet',
-    'no_warnings': 'opts.no_warnings',
-    'format': 'bestvideo+bestaudio/best',
-    'outtmpl': '%(title)s',
-    'merge_output_format': 'mkv'}
+ytoptions = []
 
 def printHelp():
     print("\nWelcome to YouDownloader\nCreated By Kasiimh1\n\n",
@@ -31,9 +16,9 @@ def printHelp():
             "-v, -video   Download Video in Highest Quality Available\n")
     return
 
-def downloader(link, ydl_opts):
+def downloader(link, ytoptions):
     for index, x in enumerate(link):
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with youtube_dl.YoutubeDL(ytoptions) as ydl:
             ydl.download([x])
             print("DOWNLOAD FINISHED!")
         print("Successfully Downloaded", index + 1 , "/", len(link) , "items")
@@ -58,12 +43,30 @@ if len(sys.argv) >= 2:
         printHelp()
         exit()
 
+    if (sys.argv[1] == '-a' or sys.argv[1] == '-audio'):
+        ytoptions = {'quiet': 'opts.quiet',
+                    'no_warnings': 'opts.no_warnings',
+                    'format': 'bestaudio/best',
+                    'outtmpl':'%(title)s.%(ext)s',
+                    'postprocessors': [{
+                                       'key': 'FFmpegExtractAudio',
+                                       'preferredcodec': 'mp3',
+                                       'preferredquality': '320'}]}
+
+    
+    if (sys.argv[1] == '-v' or sys.argv[1] == '-video'):
+        ytoptions = {'quiet': 'opts.quiet',
+            'no_warnings': 'opts.no_warnings',
+            'format': 'bestvideo+bestaudio/best',
+            'outtmpl': '%(title)s',
+            'merge_output_format': 'mkv'}
+
     if (sys.argv[1] == '-v' or sys.argv[1] == '-video' and sys.argv[2] == '-l' or sys.argv[2] == '-link'):
         links = sys.argv[3].split(',')
-        downloader(links, ydl_opts_vid)
+        downloader(links, ytoptions)
         exit()
 
     if (sys.argv[1] == '-a' or sys.argv[1] == '-audio' and sys.argv[2] == '-l' or sys.argv[2] == '-link'):
         links = sys.argv[3].split(',')
-        downloader(links, ydl_opts_aud)
+        downloader(links, ytoptions)
         exit()
