@@ -21,7 +21,7 @@ def downloader(link, ytoptions):
         with youtube_dl.YoutubeDL(ytoptions) as ydl:
             ydl.download([x])
             print("DOWNLOAD FINISHED!")
-            print("Successfully Downloaded", index + 1 , "/", len(link) , "items")
+        print("Successfully Downloaded", index + 1 , "/", len(link) , "items")
     return
 
 def exit():
@@ -61,6 +61,7 @@ if len(sys.argv) >= 2:
     if (sys.argv[1] == '-v' or sys.argv[1] == '-video' and sys.argv[2] == '-l' or sys.argv[2] == '-link'):
         links = sys.argv[3].split(',')
         downloader(links, ytoptions)
+        exit()
 
     if (sys.argv[1] == '-a' or sys.argv[1] == '-audio' and sys.argv[2] == '-l' or sys.argv[2] == '-link'):
         links = sys.argv[3].split(',')

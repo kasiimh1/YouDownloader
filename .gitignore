@@ -1,0 +1,14 @@
+
+build/YouDownloader/xref-YouDownloader.html
+build/YouDownloader/warn-YouDownloader.txt
+build/YouDownloader/PYZ-00.toc
+build/YouDownloader/PYZ-00.pyz
+build/YouDownloader/PKG-00.toc
+build/YouDownloader/PKG-00.pkg
+build/YouDownloader/EXE-00.toc
+build/YouDownloader/base_library.zip
+build/YouDownloader/Analysis-00.toc
+__pycache__/YouDownloader.cpython-37.pyc
+.DS_Store
+YouDownloader.spec
+dist/YouDownloader
