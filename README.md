@@ -1,4 +1,11 @@
-* Fixed MP3s naming to video title 
+* Rewrote to accept args from command line
+
+#How to use
+ -e, -exit    Exit Program
+ -h, -help    Show Help Screen
+ -l, -link    Video Links You Wish To Download In This Format -> link,link,link
+ -a, -audio   Download Audio Only
+ -v, -video   Download Video in Highest Quality Available
 
 *********************************
       ffmpeg is required 
