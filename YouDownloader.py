@@ -47,6 +47,7 @@ if len(sys.argv) >= 2:
         ytoptions = {'quiet': 'opts.quiet',
                         'no_warnings': 'opts.no_warnings',
                         'format': 'bestaudio/best',
+                        'outtmpl': '%(title)s',
                         'postprocessors': [{'key': 'FFmpegExtractAudio',
                                             'preferredcodec': 'mp3',
                                             'preferredquality': '320'}]}
