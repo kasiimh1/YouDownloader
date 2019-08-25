@@ -4,7 +4,9 @@
       -e, -exit    Exit Program
 
       -h, -help    Show Help Screen
-
+      
+      -c, -codec   Set Codec When Downloading Audio Only
+      
       -l, -link    Video Links You Wish To Download In This Format -> link,link,link
 
       -a, -audio   Download Audio Only
@@ -14,6 +16,7 @@
 
 # Changes 
 
+* Can now specify codec for audio to be converted to (mp3 by default)
 * Rewrote to accept args from command line
 
 *********************************
