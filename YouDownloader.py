@@ -7,8 +7,6 @@ import sys
 links = []
 ytoptions = []
 
-audioCodec = 'mp3' #set default codec for audio
-
 def printHelp():
     print("\nWelcome to YouDownloader\nCreated By Kasiimh1\n\n",
             "-e, -exit    Exit Program\n",
@@ -35,6 +33,11 @@ if (len(sys.argv) == 1):
     printHelp()
     exit()
 
+if (len(sys.argv) >= 5 and sys.argv[4] == '-c' or len(sys.argv) >= 5 and sys.argv[4] == '-codec'):
+    audioCodec = sys.argv[5]
+else:
+    audioCodec = 'mp3'
+
 if len(sys.argv) >= 2:
 
     #exit program
@@ -47,10 +50,6 @@ if len(sys.argv) >= 2:
         exit()
 
     if (sys.argv[1] == '-a' or sys.argv[1] == '-audio'):
-        
-        if (sys.argv[4] == '-c' or sys.argv[4] == '-codec'):
-            audioCodec = sys.argv[5]  #codec should be the fourth arg provided
-        
         ytoptions = {'quiet': 'opts.quiet',
                     'no_warnings': 'opts.no_warnings',
                     'format': 'bestaudio/best',
@@ -65,7 +64,7 @@ if len(sys.argv) >= 2:
             'no_warnings': 'opts.no_warnings',
             'format': 'bestvideo+bestaudio/best',
             'outtmpl': '%(title)s',
-            'merge_output_format': videoContainer}
+            'merge_output_format': 'mkv'}
 
     if (sys.argv[1] == '-v' or sys.argv[1] == '-video' and sys.argv[2] == '-l' or sys.argv[2] == '-link'):
         links = sys.argv[3].split(',')
