@@ -20,10 +20,11 @@
 * Rewrote to accept args from command line
 
 *********************************
-      ffmpeg is required 
+      ffmpeg & libmagic is required 
       install brew.sh
-      brew install ffmpeg 
+      brew install ffmpeg && brew install libmagic
 ********************************
+
 
 
 Everything should work as expected!
