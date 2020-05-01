@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 import youtube_dl
 import sys
 
-#**** need to install ffmpeg for this to work ****#
+#**** need to install ffmpeg for this to work & youtube-dl with choco or brew ****#
 
 links = []
 ytoptions = []
