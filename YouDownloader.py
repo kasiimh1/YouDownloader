@@ -21,10 +21,10 @@ def downloader(link, ytoptions):
 
 parser = argparse.ArgumentParser(description='YouDownloader: Easy to use Youtube Tool by Kasiimh1')
 parser.add_argument('-a', help='Download Audio Only', action='store_true')
-parser.add_argument('-c', help='Set Codec When Downloading Audio Only', action='store_true') 
+parser.add_argument('-c', help='Set Codec When Downloading Audio Only') 
 parser.add_argument('-e', help='Exit Program', action='store_true')
 parser.add_argument('-i', help='Install dependancies', action='store_true')
-parser.add_argument('-l', help='Video Links You Wish To Download In This Format -> link,link,link', action='store_true')
+parser.add_argument('-l', help='Video Links You Wish To Download In This Format -> link,link,link')
 parser.add_argument('-v', help='Download Video in Highest Quality Available', action='store_true')
 args = parser.parse_args()
 
