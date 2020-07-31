@@ -28,6 +28,9 @@ args = parser.parse_args()
 
 parser.print_help()
 
+if args.e:
+    sys.exit(-1)
+
 if args.c:
     audioCodec = args.c
 else:
