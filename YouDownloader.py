@@ -2,10 +2,11 @@ from __future__ import unicode_literals
 import youtube_dl
 import sys, argparse, platform, os
 
-if platform.system == "Darwin":
-    os.system("brew install libmagic && brew install ffmpeg")
-if platform.system == "Windows":
-    os.system("choco install ffmpeg -Y")
+def installDep():
+    if platform.system == "Darwin":
+        os.system("brew install libmagic && brew install ffmpeg")
+    if platform.system == "Windows":
+        os.system("choco install ffmpeg -Y")
 
 links = []
 ytoptions = []
@@ -22,6 +23,7 @@ parser = argparse.ArgumentParser(description='YouDownloader: Easy to use Youtube
 parser.add_argument('-a', help='Download Audio Only', action='store_true')
 parser.add_argument('-c', help='Set Codec When Downloading Audio Only', action='store_true') 
 parser.add_argument('-e', help='Exit Program', action='store_true')
+parser.add_argument('-i', help='Install dependancies', action='store_true')
 parser.add_argument('-l', help='Video Links You Wish To Download In This Format -> link,link,link', action='store_true')
 parser.add_argument('-v', help='Download Video in Highest Quality Available', action='store_true')
 args = parser.parse_args()
@@ -35,6 +37,9 @@ if args.c:
     audioCodec = args.c
 else:
     audioCodec = 'mp3'
+
+if args.i:
+    installDep()
 
 if args.a:
     ytoptions = {'quiet': 'opts.quiet',
