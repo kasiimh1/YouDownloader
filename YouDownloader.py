@@ -1,14 +1,5 @@
 from __future__ import unicode_literals
-import youtube_dl
-import sys, argparse, platform, os
-
-def installDep():
-    if platform.system() == "Darwin":
-        os.system("brew install libmagic && brew install ffmpeg")
-    if platform.system() == "Windows":
-        os.system("choco install ffmpeg")
-    if platform.system() == None:
-        print("Cannot Determine OS")
+import youtube_dl, sys, argparse, platform, os
 
 links = []
 ytoptions = []
@@ -41,8 +32,9 @@ else:
     audioCodec = 'mp3'
 
 if args.i:
-    print("Installing Dependencies")
-    installDep()
+    print("Install Dependencies")
+    print("[Windows] choco install ffmpeg (copy into admin cmd window)")
+    print("[macOS] brew install ffmpeg && brew install libmagic")
 
 if args.a:
     ytoptions = {'quiet': 'opts.quiet',
