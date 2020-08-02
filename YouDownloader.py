@@ -3,10 +3,12 @@ import youtube_dl
 import sys, argparse, platform, os
 
 def installDep():
-    if platform.system == "Darwin":
+    if platform.system() == "Darwin":
         os.system("brew install libmagic && brew install ffmpeg")
-    if platform.system == "Windows":
-        os.system("choco install ffmpeg -Y")
+    if platform.system() == "Windows":
+        os.system("choco install ffmpeg")
+    if platform.system() == None:
+        print("Cannot Determine OS")
 
 links = []
 ytoptions = []
@@ -39,6 +41,7 @@ else:
     audioCodec = 'mp3'
 
 if args.i:
+    print("Installing Dependencies")
     installDep()
 
 if args.a:
