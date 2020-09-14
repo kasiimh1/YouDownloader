@@ -5,7 +5,6 @@ links = []
 ytoptions = []
 
 def downloader(link, ytoptions):
-    print(ytoptions)
     for index, x in enumerate(link):
         with youtube_dl.YoutubeDL(ytoptions) as ydl:
             ydl.download([x])
